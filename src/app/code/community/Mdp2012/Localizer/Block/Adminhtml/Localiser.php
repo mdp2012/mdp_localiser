@@ -31,7 +31,7 @@
  * @version   $Id:$
  * @since     0.4.0
  */
-class Mdp2012_Localiser_Block_Adminhtml_Germansetup extends Mage_Adminhtml_Block_Widget
+class Mdp2012_Localiser_Block_Adminhtml_Localiser extends Mage_Adminhtml_Block_Widget
 {
     /**
      * Class Constructor

@@ -31,7 +31,7 @@
  * @version   $Id:$
  * @since     0.4.0
  */
-class Mdp2012_Localiser_GermansetupController extends Mage_Adminhtml_Controller_Action
+class Mdp2012_Localiser_LocaliserController extends Mage_Adminhtml_Controller_Action
 {
     /**
      * Basic action: setup form

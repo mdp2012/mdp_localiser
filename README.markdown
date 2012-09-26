@@ -10,7 +10,7 @@ Ausschließlich die Tags unter http://gitorious.mdp/mdp_localiser/mdp_localiser/
 
 ## Über diese Extension
 
-Localiser ist eine deutlich verbesserte Alternative zu bereits existierenden Modulen wie "Market Ready Germany" oder "German Shop". Zentrale Features des Moduls GermanSetup dabei sind:
+Localiser ist eine deutlich verbesserte Alternative zu bereits existierenden Modulen wie "Market Ready Germany" oder "German Shop". Zentrale Features des Moduls Localiser dabei sind:
 
 * Button-Lösung
 * Setzen wichtiger Konfigurationseinstellungen

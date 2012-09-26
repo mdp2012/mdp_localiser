@@ -194,7 +194,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <Mdp2012_Localiser before="Mage_Adminhtml">Mdp2012_Localiser</Mdp2012_GermanSetup>
+                        <Mdp2012_Localiser before="Mage_Adminhtml">Mdp2012_Localiser</Mdp2012_Localiser>
                     </modules>
                 </args>
             </adminhtml>
