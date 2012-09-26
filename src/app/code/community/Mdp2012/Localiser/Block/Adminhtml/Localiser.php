@@ -81,4 +81,14 @@ class Mdp2012_Localiser_Block_Adminhtml_Localiser extends Mage_Adminhtml_Block_W
     {
         return Mage::getSingleton('localiser/source_tax_newProductTaxClass')->getDefaultOption();
     }
+
+
+    public function getLocaleChoices()
+    {
+        return array(
+            array('code'=>'de', 'name' => $this->__('Germany')),
+            array('code'=>'at', 'name'=> $this->__('Austria')),
+            array('code'=>'ch', 'name' => $this->__('Switzerland'))
+        );
+    }
 }
