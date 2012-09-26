@@ -201,27 +201,7 @@
         </routers>
     </admin>
     <default>
-        <catalog>
-            <price>
-                <display_block_below_price>1</display_block_below_price>
-                <cms_page_shipping>lieferung</cms_page_shipping>
-            </price>
-        </catalog>
-        <general>
-            <imprint>
-                <shop_name>Beispielshop</shop_name>
-                <company_first>Musterfirma GmbH</company_first>
-                <zip>12345</zip>
-                <street>Musterstr. 1</street>
-                <city>Musterstadt</city>
-                <email>info@musterdomain.de</email>
-            </imprint>
-        </general>
-        <checkout>
-            <options>
-                <additional_information><![CDATA[Zusätzlich können noch Kosten oder Steuern anfallen, die nicht über uns abgeführt bzw. von uns in Rechnung gestellt werden.]]></additional_information>
-            </options>
-        </checkout>
+ <!-- ** @JDS removed catalog/price, general/imprint ** -->   
         <customer>
             <address_templates>
                 <text><![CDATA[

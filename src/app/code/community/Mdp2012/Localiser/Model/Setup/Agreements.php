@@ -42,23 +42,7 @@ class Mdp2012_Localiser_Model_Setup_Agreements extends Mdp2012_Localiser_Model_S
     {
         // Build and create agreements
         $agreements = array(
-            array(
-                'name' => 'AGB',
-                'content' => '{{block type="cms/block" block_id="gs_business_terms"}}',
-                'checkbox_text'
-                    => 'Ich habe die Allgemeinen Geschäftsbedingungen gelesen und stimme diesen ausdrücklich zu.',
-                'is_active' => '1',
-                'is_html' => '1',
-                'stores' => array('0')
-            ),
-            array(
-                'name' => 'Widerrufsbelehrung',
-                'content' => '{{block type="cms/block" block_id="gs_revocation"}}',
-                'checkbox_text' => 'Ich habe die Widerrufsbelehrung gelesen.',
-                'is_active' => '1',
-                'is_html' => '1',
-                'stores' => array('0')
-            )
+/** @JDS TODO add countries */
         );
         foreach ($agreements as $agreement) {
             $model = Mage::getModel('checkout/agreement');
