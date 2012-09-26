@@ -43,12 +43,12 @@ class Mdp2012_Localiser_LocaliserController extends Mage_Adminhtml_Controller_Ac
         $helper = Mage::helper('localiser');
 
         $this->_title($helper->__('System'))
-            ->_title($helper->__('German Setup'))
+            ->_title($helper->__('Localiser'))
             ->_title($helper->__('Setup'));
 
         $this->loadLayout()
             ->_setActiveMenu('system/localiser/setup')
-            ->_addBreadcrumb($helper->__('German Setup'), $helper->__('German Setup'))
+            ->_addBreadcrumb($helper->__('Localiser'), $helper->__('Localiser'))
             ->renderLayout();
     }
 
@@ -62,12 +62,12 @@ class Mdp2012_Localiser_LocaliserController extends Mage_Adminhtml_Controller_Ac
         $helper = Mage::helper('localiser');
 
         $this->_title($helper->__('System'))
-            ->_title($helper->__('German Setup'))
+            ->_title($helper->__('Localiser'))
             ->_title($helper->__('Recommended Extensions'));
 
         $this->loadLayout()
             ->_setActiveMenu('system/localiser/extensions')
-            ->_addBreadcrumb($helper->__('German Setup'), $helper->__('German Setup'))
+            ->_addBreadcrumb($helper->__('Localiser'), $helper->__('Localiser'))
             ->renderLayout();
     }
 
@@ -83,40 +83,40 @@ class Mdp2012_Localiser_LocaliserController extends Mage_Adminhtml_Controller_Ac
                 if ($this->getRequest()->getParam('systemconfig') == 1) {
                     Mage::getSingleton('localiser/setup_systemconfig')->setup();
                     $this->_getSession()->addSuccess(
-                        $this->__('German Setup: System Config Settings have been updated.')
+                        $this->__('Localiser: System Config Settings have been updated.')
                     );
                 }
 
                 if ($this->getRequest()->getParam('cms') == 1) {
                     Mage::getSingleton('localiser/setup_cms')->setup();
                     $this->_getSession()->addSuccess(
-                        $this->__('German Setup: CMS Blocks and Pages have been created.')
+                        $this->__('Localiser: CMS Blocks and Pages have been created.')
                     );
                 }
 
                 if ($this->getRequest()->getParam('agreements') == 1) {
                     Mage::getSingleton('localiser/setup_agreements')->setup();
                     $this->_getSession()->addSuccess(
-                        $this->__('German Setup: Checkout Agreements have been created.')
+                        $this->__('Localiser: Checkout Agreements have been created.')
                     );
                 }
 
                 if ($this->getRequest()->getParam('email') == 1) {
                     Mage::getSingleton('localiser/setup_email')->setup();
                     $this->_getSession()->addSuccess(
-                        $this->__('German Setup: Email Templates have been created.')
+                        $this->__('Localiser: Email Templates have been created.')
                     );
                 }
 
                 if ($this->getRequest()->getParam('tax') == 1) {
                     Mage::getSingleton('localiser/setup_tax')->setup();
                     $this->_getSession()->addSuccess(
-                        $this->__('German Setup: Tax Settings have been created.')
+                        $this->__('Localiser: Tax Settings have been created.')
                     );
 
                     $this->_updateProductTaxClasses();
                     $this->_getSession()->addSuccess(
-                        $this->__('German Setup: Product Tax Classes have been updated.')
+                        $this->__('Localiser: Product Tax Classes have been updated.')
                     );
                 }
 

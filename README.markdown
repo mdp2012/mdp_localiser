@@ -26,15 +26,15 @@ Localiser ist eine deutlich verbesserte Alternative zu bereits existierenden Mod
 
 Nachdem Sie die Extension über Magento Connect installiert haben oder manuell hochgeladen haben, sollten Sie sich aus dem Magento Backend aus- und wieder einloggen. Sie sollten dann unterhalb des Backend Hauptmenüs folgenden Hinweis sehen:
 
-German Setup wurde installiert. Klicken Sie hier, um CMS-Seiten, Blöcke, E-Mails und Steuer-Einstellungen zu initialisieren.
+Localiser wurde installiert. Klicken Sie hier, um CMS-Seiten, Blöcke, E-Mails und Steuer-Einstellungen zu initialisieren.
 
-Auf der nächsten Seite können Sie die gewünschten Einstellungen wählen und dann rechts oben den "German Setup ausführen" Button klicken, um das gewünschte Setup auszuführen.
+Auf der nächsten Seite können Sie die gewünschten Einstellungen wählen und dann rechts oben den "Localiser ausführen" Button klicken, um das gewünschte Setup auszuführen.
 
 ## Weiterführende Links
 
 **Modul auf MagentoConnect** 
 
-* http://www.magentocommerce.com/magento-connect/german-setup-6623.html
+* http://gitorious.mdp/mdp_localiser
 
 **Erläuternde Blogeinträge:**
 

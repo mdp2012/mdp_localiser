@@ -21,7 +21,7 @@
  * @since     0.4.0
  */
 /**
- * Displays German Setup notifications
+ * Displays Localiser notifications
  *
  * @category  Mdp2012
  * @package   Mdp2012_Localiser
@@ -47,7 +47,7 @@ class Mdp2012_Localiser_Block_Adminhtml_Notifications extends Mage_Adminhtml_Blo
     }
 
     /**
-     * Returns a value that indicates if some of the german setup settings have already been initialized.
+     * Returns a value that indicates if some of the localiser settings have already been initialized.
      *
      * @return bool
      */

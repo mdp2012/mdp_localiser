@@ -41,7 +41,7 @@ class Mdp2012_Localiser_Block_Adminhtml_Localiser extends Mage_Adminhtml_Block_W
     public function __construct()
     {
         parent::__construct();
-        $this->setTitle('German Setup');
+        $this->setTitle('Localiser');
     }
 
     /**

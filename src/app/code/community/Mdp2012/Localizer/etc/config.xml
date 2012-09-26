@@ -143,7 +143,7 @@
             <system>
                 <children>
                     <localiser translate="title">
-                        <title>German Setup</title>
+                        <title>Localiser</title>
                         <sort_order>11</sort_order>
                         <children>
                             <setup>
@@ -168,7 +168,7 @@
                         <system>
                             <children>
                                 <localiser translate="title">
-                                    <title>German Setup</title>
+                                    <title>Localiser</title>
                                     <sort_order>11</sort_order>
                                 </localiser>
                             </children>
