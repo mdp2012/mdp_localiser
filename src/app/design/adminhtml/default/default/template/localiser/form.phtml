@@ -51,8 +51,8 @@
                             <td class="value" style="width:160px !important;">
                                 <select name="country" id="select_country" style="width:150px !important;">
                                     <?php $localeChoices = $this->getLocaleChoices()?>
-                                    <?php foreach ($localeChoices as $locale): ?>
-                                        <option value="<?php echo $locale['code'] ?>" selected="selected"><?php echo $locale['name'] ?></option>
+                                    <?php foreach ($localeChoices as $code=>$locale): ?>
+                                        <option value="<?php echo $code ?>" selected="selected"><?php echo $locale ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </td>
