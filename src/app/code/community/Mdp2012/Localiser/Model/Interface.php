@@ -35,7 +35,7 @@ interface Mdp2012_Localiser_Model_Interface
 {
     /**
      * return the locale code
-     * @return string
+     * @return array
      */
     public function getSupportedLocaleCodes();
 

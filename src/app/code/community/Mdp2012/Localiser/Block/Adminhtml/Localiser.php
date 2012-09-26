@@ -85,6 +85,6 @@ class Mdp2012_Localiser_Block_Adminhtml_Localiser extends Mage_Adminhtml_Block_W
 
     public function getLocaleChoices()
     {
-        return Mage::getConfig()->getNode('default/localiser')->asArray();
+        return Mage::getSingleton('localiser/config')->getLocaleChoices();
     }
 }

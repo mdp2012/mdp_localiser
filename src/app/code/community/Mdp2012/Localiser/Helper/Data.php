@@ -51,4 +51,17 @@ class Mdp2012_Localiser_Helper_Data extends Mage_Core_Helper_Abstract
 
         return Mage::helper('cms/page')->getPageUrl($cmsPage->getId());
     }
+
+    /**
+     * use Zend's Library to return name of locale in current locale
+     * @param $localeCode
+     */
+    public function getLocaleName ($localeCode)
+    {
+        return $localeCode;
+        //TODO: work this one out
+        $localeNames  = Mage::app()->getLocale()->getTranslationList('territory', Mage::app()->getLocale()->getLocaleCode(), 1);
+        return $localeNames[$localeCode];
+
+    }
 }
