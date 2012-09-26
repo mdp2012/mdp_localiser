@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * This file is part of the MDP 2012 Hackathon.
+ *
+ * Mdp2012_Localiser is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
+ *
+ * This script is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * PHP version 5
+ *
+ * @category  Mdp2012
+ * @package   Mdp2012_Localiser
+ * @author    Mdp2012 Team <team@magento-developer-paradise.com>
+ * @copyright 2012 Mdp2012 Team (http://gitorious.mdp/mdp_localiser). All rights served.
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ * @version   $Id:$
+ * @since     0.1.0
+ */
+ -->
+<config>
+    <modules>
+        <Mdp2012_Localiser>
+            <version>1.1.2</version>
+        </Mdp2012_Localiser>
+    </modules>
+    <global>
+        <blocks>
+            <localiser>
+                <class>Mdp2012_Localiser_Block</class>
+            </localiser>
+            <googleanalytics>
+                <rewrite>
+                    <ga>Mdp2012_Localiser_Block_Ga</ga>
+                </rewrite>
+            </googleanalytics>
+        </blocks>
+        <helpers>
+            <localiser>
+                <class>Mdp2012_Localiser_Helper</class>
+            </localiser>
+    		<catalog>
+                <rewrite>
+                    <product_configuration>Mdp2012_Localiser_Helper_Catalog_Product_Configuration</product_configuration>
+                </rewrite>
+            </catalog>
+        </helpers>
+        <models>
+            <localiser>
+                <class>Mdp2012_Localiser_Model</class>
+            </localiser>
+            <tax>
+                <rewrite>
+                    <config>Mdp2012_Localiser_Model_Tax_Config</config>
+                </rewrite>
+            </tax>
+        </models>
+        <resources>
+            <localiser_setup>
+                <setup>
+                    <module>Mdp2012_Localiser</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </localiser_setup>
+        </resources>
+        <events>
+            <catalog_product_save_before>
+                <observers>
+                    <localiser_observer>
+                        <class>localiser/observer</class>
+                        <type>model</type>
+                        <method>autogenerateMetaInformation</method>
+                    </localiser_observer>
+                </observers>
+            </catalog_product_save_before>
+        </events>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <localiser>
+                    <file>localiser.xml</file>
+                </localiser>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Mdp2012_Localiser>
+                    <files>
+                        <localiser>Mdp2012_Localiser.csv</localiser>
+                    </files>
+                </Mdp2012_Localiser>
+            </modules>
+        </translate>
+        <events>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <localiser_observer>
+                        <class>localiser/observer</class>
+                        <type>model</type>
+                        <method>filterAgreements</method>
+                    </localiser_observer>
+                </observers>
+            </core_block_abstract_to_html_before>
+        </events>
+        <frontend>
+            <secure_url>
+                <contacts>/contacts/</contacts>
+            </secure_url>
+        </frontend>
+        <routers>
+            <localiser>
+                <use>standard</use>
+                <args>
+                    <module>Mdp2012_Localiser</module>
+                    <frontName>localiser</frontName>
+                </args>
+            </localiser>
+        </routers>
+    </frontend>
+    <adminhtml>
+        <layout>
+            <updates>
+                <localiser>
+                    <file>localiser.xml</file>
+                </localiser>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Mdp2012_Localiser>
+                    <files>
+                        <localiser>Mdp2012_Localiser.csv</localiser>
+                    </files>
+                </Mdp2012_Localiser>
+            </modules>
+        </translate>
+        <menu>
+            <system>
+                <children>
+                    <localiser translate="title">
+                        <title>German Setup</title>
+                        <sort_order>11</sort_order>
+                        <children>
+                            <setup>
+                                <title>Setup</title>
+                                <action>adminhtml/localiser</action>
+                                <sort_order>10</sort_order>
+                            </setup>
+                            <recommended_extensions>
+                                <title>Recommended Extensions</title>
+                                <action>adminhtml/localiser/extensions</action>
+                                <sort_order>15</sort_order>
+                            </recommended_extensions>
+                        </children>
+                    </localiser>
+                </children>
+            </system>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <localiser translate="title">
+                                    <title>German Setup</title>
+                                    <sort_order>11</sort_order>
+                                </localiser>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <events>
+            <adminhtml_catalog_product_attribute_edit_prepare_form>
+                <observers>
+                    <localiser_observer>
+                        <class>localiser/observer</class>
+                        <type>model</type>
+                        <method>addIsVisibleOnCheckoutOption</method>
+                    </localiser_observer>
+                </observers>
+            </adminhtml_catalog_product_attribute_edit_prepare_form>     
+        </events>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Mdp2012_Localiser before="Mage_Adminhtml">Mdp2012_Localiser</Mdp2012_GermanSetup>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <default>
+        <catalog>
+            <price>
+                <display_block_below_price>1</display_block_below_price>
+                <cms_page_shipping>lieferung</cms_page_shipping>
+            </price>
+        </catalog>
+        <general>
+            <imprint>
+                <shop_name>Beispielshop</shop_name>
+                <company_first>Musterfirma GmbH</company_first>
+                <zip>12345</zip>
+                <street>Musterstr. 1</street>
+                <city>Musterstadt</city>
+                <email>info@musterdomain.de</email>
+            </imprint>
+        </general>
+        <checkout>
+            <options>
+                <additional_information><![CDATA[Zusätzlich können noch Kosten oder Steuern anfallen, die nicht über uns abgeführt bzw. von uns in Rechnung gestellt werden.]]></additional_information>
+            </options>
+        </checkout>
+        <customer>
+            <address_templates>
+                <text><![CDATA[
+{{depend company}}{{var company}}
+{{/depend}}{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}
+{{if street1}}{{var street1}}
+{{/if}}{{depend street2}}{{var street2}}
+{{/depend}}{{depend street3}}{{var street3}}
+{{/depend}}{{depend street4}}{{var street4}}
+{{/depend}}{{if postcode}}{{var postcode}} {{/if}}{{if city}}{{var city}}{{/if}}
+{{var country}}
+Tel: {{var telephone}}
+{{depend fax}}Fax: {{var fax}}
+{{/depend}}
+                ]]></text>
+                <oneline><![CDATA[{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}, {{var street}}, {{var postcode}} {{var city}}, {{var country}}]]></oneline>
+                <html><![CDATA[
+{{depend company}}{{var company}}<br />{{/depend}}
+{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}<br/>
+{{if street1}}{{var street1}}<br />{{/if}}
+{{depend street2}}{{var street2}}<br />{{/depend}}
+{{depend street3}}{{var street3}}<br />{{/depend}}
+{{depend street4}}{{var street4}}<br />{{/depend}}
+{{if postcode}}{{var postcode}} {{/if}}{{if city}}{{var city}}{{/if}}<br/>
+{{var country}}<br/>
+{{depend telephone}}Tel: {{var telephone}}{{/depend}}
+{{depend fax}}<br/>Fax: {{var fax}}{{/depend}}
+                ]]></html>
+                <pdf><![CDATA[
+{{depend company}}{{var company}}|{{/depend}}
+{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}|
+{{if street1}}{{var street1}}
+{{/if}}
+{{depend street2}}{{var street2}}|{{/depend}}
+{{depend street3}}{{var street3}}|{{/depend}}
+{{depend street4}}{{var street4}}|{{/depend}}
+{{if postcode}}{{var postcode}} {{/if}}{{if city}}{{var city}}{{/if}}|
+{{var country}}|
+{{depend telephone}}Tel: {{var telephone}}{{/depend}}|
+{{depend fax}}<br/>Fax: {{var fax}}{{/depend}}|
+                ]]></pdf>
+                <js_template template="title" module="customer">
+                    <title>Javascript Template</title>
+                    <defaultFormat><![CDATA[#{company}<br/>#{prefix} #{firstname} #{middlename} #{lastname} #{suffix}<br/>#{street0}<br/>#{street1}<br/>#{street2}<br/>#{street3}<br/>#{postcode} #{city}<br/>#{country_id}<br/>Tel: #{telephone}<br/>Fax: #{fax}]]>
+                    </defaultFormat>
+                </js_template>
+            </address_templates>
+        </customer>
+
+        <url>
+            <convert>
+                <char0228><from>ä</from><to>ae</to></char0228>
+                <char0246><from>ö</from><to>oe</to></char0246>
+                <char0252><from>ü</from><to>ue</to></char0252>
+                <char0223><from>ß</from><to>ss</to></char0223>
+                <char0196><from>Ä</from><to>ae</to></char0196>
+                <char0214><from>Ö</from><to>oe</to></char0214>
+                <char0220><from>Ü</from><to>ue</to></char0220>
+            </convert>
+        </url>
+
+    </default>
+</config>

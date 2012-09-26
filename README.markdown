@@ -1,16 +1,16 @@
-# FIREGENTO GermanSetup
+# MDP 2012 Localiser
 
 ## Branches
 
 * master => entspicht einem aktuellen Stand des Moduls
-* development => Enthält neue Features für GermanSetup
+* development => Enthält neue Features für Localiser
 
-Ausschließlich die Tags unter https://github.com/firegento/firegento-germansetup/tags entsprechen den jeweils veröffentlichten Versionen auf MagentoConnect. 
+Ausschließlich die Tags unter http://gitorious.mdp/mdp_localiser/mdp_localiser/commits/abstract entsprechen den jeweils veröffentlichten Versionen auf MagentoConnect. 
 
 
 ## Über diese Extension
 
-GermanSetup ist eine deutlich verbesserte Alternative zu bereits existierenden Modulen wie "Market Ready Germany" oder "German Shop". Zentrale Features des Moduls GermanSetup dabei sind:
+Localiser ist eine deutlich verbesserte Alternative zu bereits existierenden Modulen wie "Market Ready Germany" oder "German Shop". Zentrale Features des Moduls GermanSetup dabei sind:
 
 * Button-Lösung
 * Setzen wichtiger Konfigurationseinstellungen
@@ -39,5 +39,5 @@ Auf der nächsten Seite können Sie die gewünschten Einstellungen wählen und d
 **Erläuternde Blogeinträge:**
 
 * http://www.avs-webentwicklung.de/nc/blog/artikel/magento-german-setup-die-alternative-zu-market-ready-germany-ua.html
-* http://www.mageblog.de/2012/02/15/neues-modul-germansetup-als-mrg-ersatz/
-* http://www.webguys.de/magento/germansetup/
+* http://www.mageblog.de/2012/02/15/neues-modul-localiser-als-mrg-ersatz/
+* http://www.webguys.de/magento/localiser/
