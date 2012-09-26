@@ -100,6 +100,19 @@ class Mdp2012_Localiser_Model_Config extends Varien_Simplexml_Config
         }
     }
 
+    public function addConfigFile($module, $fileName)
+    {
+        $mergeConfig = Mage::getModel('core/config_base');
+
+        $config = Mage::getConfig();
+        $configFile = $config->getModuleDir('etc', $module) . DS . $fileName;
+        if (file_exists($configFile)) {
+            if ($mergeConfig->loadFile($configFile)) {
+                $config->extend($mergeConfig, true);
+            }
+        }
+    }
+
     public function getInstalledLocalisers()
     {
         return Mage::getConfig()->getNode('default/localiser/locales')->asArray();
@@ -111,7 +124,7 @@ class Mdp2012_Localiser_Model_Config extends Varien_Simplexml_Config
         foreach ($this->getInstalledLocalisers() as $localiser=>$localiserClass) {
             try {
                 $localiser = Mage::getModel($localiserClass);
-                if(!($localiser instanceof Mdp2012_Localiser_Model_Interface)) {
+                if(!($localiser instanceof Mdp2012_Localiser_Model_Localiser_Abstract)) {
                     //TODO: needs to move higher / into controller
                     throw new Mdp2012_Localiser_Model_Exception('Localiser class '.$localiserClass.' should implement Mdp2012_Localiser_Model_Interface');
                 }
@@ -120,7 +133,7 @@ class Mdp2012_Localiser_Model_Config extends Varien_Simplexml_Config
             }
 
             foreach ($localiser->getSupportedLocaleCodes() as $locale) {
-                $returnArray[$localiserClass . DS . $locale] = Mage::helper('localiser')->getLocaleName($locale);
+                $returnArray[$localiser->getCode() . DS . $locale] = Mage::helper('localiser')->getLocaleName($locale);
             }
         }
         return $returnArray;

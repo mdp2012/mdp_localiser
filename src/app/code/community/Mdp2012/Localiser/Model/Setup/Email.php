@@ -55,7 +55,7 @@ class Mdp2012_Localiser_Model_Setup_Email extends Mdp2012_Localiser_Model_Setup_
      */
     protected function _getConfigEmails()
     {
-        return $this->getLocaliser()->getEmailTemplates($this->getLocaleCode());
+        return $this->_getConfigNode('emails');
     }
 
     /**
@@ -70,7 +70,7 @@ class Mdp2012_Localiser_Model_Setup_Email extends Mdp2012_Localiser_Model_Setup_
     {
         $template = Mage::getModel('core/email_template')
             ->loadByCode($emailData['template_code']);
-        
+
         if (!$template->getId() || $override) {
             $template->setTemplateSubject($emailData['template_subject'])
                 ->setTemplateCode($emailData['template_code'])
@@ -83,3 +83,4 @@ class Mdp2012_Localiser_Model_Setup_Email extends Mdp2012_Localiser_Model_Setup_
         $this->setConfigData($emailData['config_data_path'], $template->getId());
     }
 }
+

@@ -54,10 +54,7 @@ class Mdp2012_Localiser_Model_Setup_Abstract extends Mage_Core_Model_Abstract
      */
     public function getConfigData()
     {
-        $configData = Mage::getSingleton('localiser/config')
-            ->getNode('default/localiser')
-            ->asArray();
-        return $configData;
+        return $this->getLocaliser()->getConfigData();
     }
 
     /**
@@ -68,14 +65,10 @@ class Mdp2012_Localiser_Model_Setup_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    protected function _getConfigNode($node, $childNode = null)
+    protected function _getConfigNode($node)
     {
         $configData = $this->getConfigData();
-        if ($childNode) {
-            return $configData[$node][$childNode];
-        } else {
-            return $configData[$node];
-        }
+        return $configData[$this->getLocaliser()->getCode()][$this->getLocaliser()->getLocaleCode()][$node];
     }
 
     /**

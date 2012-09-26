@@ -108,7 +108,7 @@ class Mdp2012_Localiser_Model_Setup_Tax extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getConfigTaxClasses()
     {
-        return $this->_getConfigNode('tax_classes', 'default');
+        return $this->_getConfigNode('tax_classes');
     }
 
     /**
@@ -129,7 +129,7 @@ class Mdp2012_Localiser_Model_Setup_Tax extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getConfigTaxCalcRules()
     {
-        return $this->_getConfigNode('tax_calculation_rules', 'default');
+        return $this->_getConfigNode('tax_calculation_rules');
     }
 
     /**
@@ -150,7 +150,7 @@ class Mdp2012_Localiser_Model_Setup_Tax extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getConfigTaxCalcRates()
     {
-        return $this->_getConfigNode('tax_calculation_rates', 'default');
+        return $this->_getConfigNode('tax_calculation_rates');
     }
 
     /**
@@ -194,7 +194,7 @@ class Mdp2012_Localiser_Model_Setup_Tax extends Mdp2012_Localiser_Model_Setup_Ab
       */
     protected function _getConfigTaxCalculations()
     {
-        return $this->getLocaliser()->getTaxCalculations($this->getLocaleCode());
+        return $this->_getConfigNode('tax_calculations');
     }
 
     /**
@@ -229,7 +229,7 @@ class Mdp2012_Localiser_Model_Setup_Tax extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getConfigTaxConfig()
     {
-        return $this->getLocaliser()->getTaxConfig($this->getLocaleCode());
+        return $this->_getConfigNode('tax_config');
     }
 
     /**

@@ -66,7 +66,7 @@ class Mdp2012_Localiser_Model_Setup_Cms extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getConfigPages()
     {
-        return $this->getLocaliser()->getCmsPages($this->getLocaleCode());
+        return $this->_getConfigNode('pages');
     }
 
     /**
@@ -76,7 +76,7 @@ class Mdp2012_Localiser_Model_Setup_Cms extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getConfigBlocks()
     {
-        return $this->getLocaliser()->getCmsBlocks($this->getLocaleCode());
+        return $this->_getConfigNode('blocks');
     }
 
     /**
@@ -86,7 +86,7 @@ class Mdp2012_Localiser_Model_Setup_Cms extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getFooterLinks()
     {
-        return $this->_getConfigNode('footer_links', 'default');
+        return $this->_getConfigNode('footer_links');
     }
 
     /**
