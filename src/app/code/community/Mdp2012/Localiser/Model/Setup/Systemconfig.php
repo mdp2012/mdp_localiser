@@ -83,7 +83,7 @@ class Mdp2012_Localiser_Model_Setup_Systemconfig extends Mdp2012_Localiser_Model
      */
     protected function _getConfigSystemConfig()
     {
-        return $this->_getConfigNode('system_config', 'default');
+        return $this->getLocaliser()->getSystemConfigurations($this->getLocaleCode());
     }
 
     /**

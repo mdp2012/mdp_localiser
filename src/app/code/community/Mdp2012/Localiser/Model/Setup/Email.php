@@ -55,7 +55,7 @@ class Mdp2012_Localiser_Model_Setup_Email extends Mdp2012_Localiser_Model_Setup_
      */
     protected function _getConfigEmails()
     {
-        return $this->_getConfigNode('emails', 'default');
+        return $this->getLocaliser()->getEmailTemplates($this->getLocaleCode());
     }
 
     /**

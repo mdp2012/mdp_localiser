@@ -78,38 +78,46 @@ class Mdp2012_Localiser_LocaliserController extends Mage_Adminhtml_Controller_Ac
      */
     public function saveAction()
     {
+        $localiserLocale = $this->getRequest()->getParam('localiser_locale');
+        if(!is_string($localiserLocale)) {
+            throw new Exception('Unexpected format');
+        }
+
+        list($localiserCode,$localeCode) = explode('/',$localiserLocale);
+        $localiser = Mage::getModel((string)Mage::getConfig()->getNode('default/localiser/locales/'.$localiserCode));
+        $localiser->setLocaleCode($localeCode);
         if ($this->getRequest()->isPost()) {
             try {
                 if ($this->getRequest()->getParam('systemconfig') == 1) {
-                    Mage::getSingleton('localiser/setup_systemconfig')->setup();
+                    Mage::getSingleton('localiser/setup_systemconfig')->setLocaliser($localiser)->setup();
                     $this->_getSession()->addSuccess(
                         $this->__('Localiser: System Config Settings have been updated.')
                     );
                 }
 
                 if ($this->getRequest()->getParam('cms') == 1) {
-                    Mage::getSingleton('localiser/setup_cms')->setup();
+                    Mage::getSingleton('localiser/setup_cms')->setLocaliser($localiser)->setup();
                     $this->_getSession()->addSuccess(
                         $this->__('Localiser: CMS Blocks and Pages have been created.')
                     );
                 }
 
                 if ($this->getRequest()->getParam('agreements') == 1) {
-                    Mage::getSingleton('localiser/setup_agreements')->setup();
+                    Mage::getSingleton('localiser/setup_agreements')->setLocaliser($localiser)->setup();
                     $this->_getSession()->addSuccess(
                         $this->__('Localiser: Checkout Agreements have been created.')
                     );
                 }
 
                 if ($this->getRequest()->getParam('email') == 1) {
-                    Mage::getSingleton('localiser/setup_email')->setup();
+                    Mage::getSingleton('localiser/setup_email')->setLocaliser($localiser)->setup();
                     $this->_getSession()->addSuccess(
                         $this->__('Localiser: Email Templates have been created.')
                     );
                 }
 
                 if ($this->getRequest()->getParam('tax') == 1) {
-                    Mage::getSingleton('localiser/setup_tax')->setup();
+                    Mage::getSingleton('localiser/setup_tax')->setLocaliser($localiser)->setup();
                     $this->_getSession()->addSuccess(
                         $this->__('Localiser: Tax Settings have been created.')
                     );

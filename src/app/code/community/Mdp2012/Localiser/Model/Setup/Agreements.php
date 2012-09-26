@@ -41,9 +41,7 @@ class Mdp2012_Localiser_Model_Setup_Agreements extends Mdp2012_Localiser_Model_S
     public function setup()
     {
         // Build and create agreements
-        $agreements = array(
-/** @JDS TODO add countries */
-        );
+        $agreements = $this->getLocaliser()->getAgreements($this->getLocaleCode());
         foreach ($agreements as $agreement) {
             $model = Mage::getModel('checkout/agreement');
             $model = $this->_loadExistingModel($model, 'name', $agreement['name']);

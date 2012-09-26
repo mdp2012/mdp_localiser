@@ -194,7 +194,7 @@ class Mdp2012_Localiser_Model_Setup_Tax extends Mdp2012_Localiser_Model_Setup_Ab
       */
     protected function _getConfigTaxCalculations()
     {
-        return $this->_getConfigNode('tax_calculations', 'default');
+        return $this->getLocaliser()->getTaxCalculations($this->getLocaleCode());
     }
 
     /**
@@ -229,7 +229,7 @@ class Mdp2012_Localiser_Model_Setup_Tax extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getConfigTaxConfig()
     {
-        return $this->_getConfigNode('tax_config', 'default');
+        return $this->getLocaliser()->getTaxConfig($this->getLocaleCode());
     }
 
     /**

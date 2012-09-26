@@ -33,6 +33,20 @@
  */
 class Mdp2012_Localiser_Model_Setup_Abstract extends Mage_Core_Model_Abstract
 {
+
+    private $_localiser;
+
+    public function setLocaliser(Mdp2012_Localiser_Model_Interface $localiser)
+    {
+        $this->_localiser = $localiser;
+        return $this;
+    }
+
+    public function getLocaliser()
+    {
+        return $this->_localiser;
+    }
+
     /**
      * Get config.xml data
      *

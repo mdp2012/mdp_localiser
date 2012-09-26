@@ -115,7 +115,7 @@ class Mdp2012_Localiser_Model_Config extends Varien_Simplexml_Config
                     //TODO: needs to move higher / into controller
                     throw new Mdp2012_Localiser_Model_Exception('Localiser class '.$localiserClass.' should implement Mdp2012_Localiser_Model_Interface');
                 }
-            } catch (Exception $e) {
+            } catch (Mdp2012_Localiser_Model_Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
             }
 

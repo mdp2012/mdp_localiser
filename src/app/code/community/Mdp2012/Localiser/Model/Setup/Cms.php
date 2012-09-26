@@ -66,7 +66,7 @@ class Mdp2012_Localiser_Model_Setup_Cms extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getConfigPages()
     {
-        return $this->_getConfigNode('pages', 'default');
+        return $this->getLocaliser()->getCmsPages($this->getLocaleCode());
     }
 
     /**
@@ -76,7 +76,7 @@ class Mdp2012_Localiser_Model_Setup_Cms extends Mdp2012_Localiser_Model_Setup_Ab
      */
     protected function _getConfigBlocks()
     {
-        return $this->_getConfigNode('blocks', 'default');
+        return $this->getLocaliser()->getCmsBlocks($this->getLocaleCode());
     }
 
     /**
