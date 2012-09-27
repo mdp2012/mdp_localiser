@@ -68,7 +68,7 @@ class Mdp2012_Localiser_Model_Setup_Abstract extends Mage_Core_Model_Abstract
     protected function _getConfigNode($node)
     {
         $configData = $this->getConfigData();
-        return $configData[$this->getLocaliser()->getCode()][$this->getLocaliser()->getLocaleCode()][$node];
+        return $configData[$node];
     }
 
     /**
